@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create PPT</title>
+</head>
+<body>
+    <h1>Create PPT</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create PPT">
+    </form>
+    <a href="{% url 'course_detail' course.id %}">Cancel</a>
+</body>
+</html>

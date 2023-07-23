@@ -1,0 +1,26 @@
+<!-- course_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ assignment.title }} - Assignment Detail{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">{{ assignment.title }}</h1>
+            </div>
+            <div class="card-body">
+                <!-- <p class="card-text">{{ course.description }}</p> -->
+                <!-- Add other course details here if needed -->
+                <p class="card-text">Description: {{ assignment.description }}</p>
+                <p class="card-text">Due Date: {{ assignment.due_date }}</p>
+                <p class="card-text">File: {{ assignment.file }}</p>
+                <!-- <p class="card-text">Grade: {{ assignment.grade }}</p> -->
+                <a href="{% url 'assignment_download' assignment.course.id assignment.id %}">Download File</a>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <a href="{% url 'assignment_list' assignment.course.id %}" class="btn btn-secondary">Assignment List</a>
+              </div>
+        </div>
+    </div>
+{% endblock %}

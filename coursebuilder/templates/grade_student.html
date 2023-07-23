@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+    <h2>Grade</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+    <br>
+    {% if grade %}
+        <p>Grade: {{ grade }}</p>
+    {% endif %}
+  </div>
+{% endblock %}

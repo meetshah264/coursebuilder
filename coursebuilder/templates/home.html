@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include custom CSS for dashboard styling -->
+    <link href="path/to/custom-dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">CourseBuilder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'course_list' %}">Courses</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'grade_professor' %}">Grades</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'event_list' %}">Events</a>
+                  </li>      
+                </ul>
+        </div>
+    </nav>
+    
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Main Content Area -->
+            <main class="col">
+                <div class="my-4">
+                    <h2>Welcome!!</h2>
+                    <!-- <p>Here, you can access your courses and assignments.</p> -->
+                </div>
+
+                <!-- List of Courses as Cards -->
+                <div class="row">
+                    {% for course in courses %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ course.title }}</h5>
+                                    <p class="card-text">{{ course.description }}</p>
+                                    <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- Add more course cards here -->
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <div class="text-center fixed-bottom bg-primary">
+        <a href="{% url 'aboutus' %}" style="color: white; font-size: 20px; text-decoration: none!important;">About Us</a>    
+    </div>
+    <!-- Include Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- course_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="card-title">{{ user.membership }} Membership</h1><br>
+        <div class="card">
+            <div class="card-header">
+                <div class="container">
+                    {% for videos in video %}
+                    <h3 class="mt-2 mb-2">{{ videos.title }}</h3>
+                    <div class="mt-5">
+                        <div class="video-wrapper">
+                            <video class="embed-responsive-16by9" style="width: 600px!important;" controls="controls">
+                                <source src="{{ videos.video_file.url }}" type="video/mp4">
+                            </video>
+                            <div class="mt-5">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

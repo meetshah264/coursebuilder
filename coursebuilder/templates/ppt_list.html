@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ course.title }} - PPTs</title>
+</head>
+<body>
+    <h1>{{ course.title }} - PPTs</h1>
+    <ul>
+        {% for ppt in ppts %}
+        <li>
+            <a href="#">{{ ppt.title }}</a>
+        </li>
+        {% empty %}
+        <li>No PPTs available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'course_detail' course.id %}">Back to Course Detail</a>
+</body>
+</html>

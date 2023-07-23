@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ course.title }} - Labs</title>
+</head>
+<body>
+    <h1>{{ course.title }} - Labs</h1>
+    <ul>
+        {% for lab in labs %}
+        <li>
+            <a href="#">{{ lab.title }}</a>
+        </li>
+        {% empty %}
+        <li>No labs available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'course_detail' course.id %}">Back to Course Detail</a>
+</body>
+</html>

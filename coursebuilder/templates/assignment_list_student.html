@@ -1,0 +1,15 @@
+<!-- assignment_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Assignment List</h1>
+        <ul class="list-group">
+            {% for assignment in assignments %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'assignment_detail' course.id assignment.id %}" class="text-dark text nodecoration">{{ assignment.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

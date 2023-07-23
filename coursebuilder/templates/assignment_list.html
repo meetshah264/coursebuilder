@@ -1,0 +1,21 @@
+<!-- assignment_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Assignment List</h1>
+        <ul class="list-group">
+            {% for assignment in assignments %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'assignment_detail' course.id assignment.id %}" class="text-dark text nodecoration">{{ assignment.title }}</a>
+                        <div class="btn-group">
+                            <a href="{% url 'assignment_update' assignment.course.id assignment.id %}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{% url 'assignment_delete' assignment.course.id assignment.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                </li>
+            {% endfor %}
+        </ul>
+            <a href="{% url 'assignment_create' course.id %}" class="btn btn-primary mt-3">Create New Assignment</a>
+    </div>
+{% endblock %}
+

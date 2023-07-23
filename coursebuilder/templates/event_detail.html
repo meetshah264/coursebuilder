@@ -1,0 +1,27 @@
+<!-- course_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ event.title }} - Event Detail{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">{{ event.title }}</h1>
+{#                <a href="#" class="btn btn-secondary">Attendance</a>#}
+{#                <a href="#" class="btn btn-secondary">Grades</a>#}
+{#                <a href="{% url 'assignment_list' course.id %}" class="btn btn-secondary">Assignments</a>#}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ event.description }}</p>
+                <p class="card-text">{{ event.price }}</p>
+                <!-- Add other course details here if needed -->
+
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <a href="{% url 'event_list' %}" class="btn btn-secondary">Event List</a>
+                <a href="{% url 'event_update' event.id %}" class="btn btn-primary">Edit Event</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

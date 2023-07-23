@@ -1,0 +1,26 @@
+<!-- course_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h1 class="card-title">Confirm Delete</h1>
+            </div>
+            <div class="card-body">
+                <p>Are you sure you want to delete the course?</p>
+                <!-- Add any additional confirmation details here if needed -->
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <a href="{% url 'course_list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
