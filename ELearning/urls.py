@@ -6,6 +6,7 @@ from django.urls import path, include
 urlpatterns = [
     path("coursebuilder/", include("coursebuilder.urls")),
     path("admin/", admin.site.urls),
+    path("", include("payments.urls")),
 ]
 
 if settings.DEBUG:
